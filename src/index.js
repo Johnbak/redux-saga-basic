@@ -9,13 +9,12 @@ import {createStore,applyMiddleware} from "redux";
 // import thunk from "redux-thunk";
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga'
-import { watchAddAction, watchDecrementAction, watchIncrementAction } from './redux/saga/counter.action';
+import rootSaga from './redux/saga';
 
 const sagaMiddleware = createSagaMiddleware()
 const store = createStore(reducer,composeWithDevTools(applyMiddleware(sagaMiddleware)));
-sagaMiddleware.run(watchIncrementAction)
-sagaMiddleware.run(watchDecrementAction)
-sagaMiddleware.run(watchAddAction)
+sagaMiddleware.run(rootSaga) //watch
+
 
 ReactDOM.render(
   <React.StrictMode>
