@@ -10,8 +10,8 @@ export default function App() {
       <button onClick={() => dispatch(actions.onIncrementAsync())}>
         Increment after 1 second
       </button>
-      <button onClick={() => dispatch(actions.onIncrement())}>Increment</button>
-      <button onClick={() => dispatch(actions.onDecrement())}>Decrement</button>
+      <button onClick={() => dispatch(actions.onIncrement())}>Increment + </button>
+      <button onClick={() => dispatch(actions.onDecrement())}>Decrement - </button>
       <button onClick={() => dispatch(actions.onAdd(10))}>Add</button>
       <button onClick={() => dispatch(actions.onMinus(10))}>Minus</button>
       <hr />
