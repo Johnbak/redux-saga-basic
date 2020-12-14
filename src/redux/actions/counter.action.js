@@ -1,4 +1,4 @@
-import { INCREMENT, DECREMENT, ADD,MINUS } from "../actionTypes"
+import { INCREMENT, DECREMENT, ADD } from "../actionTypes"
 
 //snipped rxaction auto generate code
 
@@ -16,10 +16,6 @@ const setAddAction = (value) => ({
     payload: value
 })
 
-const setMinusAction = (value) => ({
-    type: MINUS,    
-    payload: value
-})
 
 
 export const onIncrement = ()=>{
@@ -40,11 +36,6 @@ export const onAdd = (value)=>{
     }
 }
 
-export const onMinus = (value)=>{
-    return dispatch=> {
-        dispatch(setMinusAction(value))
-    }
-}
 
 const delay = (ms) => new Promise(res=> setTimeout(res, ms));
 

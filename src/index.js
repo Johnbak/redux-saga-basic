@@ -6,10 +6,17 @@ import reportWebVitals from './reportWebVitals';
 import {Provider} from "react-redux";
 import reducer from "./redux/reducers";
 import {createStore,applyMiddleware} from "redux";
-import thunk from "redux-thunk";
+// import thunk from "redux-thunk";
 import { composeWithDevTools } from 'redux-devtools-extension';
+import createSagaMiddleware from 'redux-saga'
+import { watchAddAction, watchDecrementAction, watchIncrementAction } from './redux/saga/counter.action';
 
-const store = createStore(reducer,composeWithDevTools(applyMiddleware(thunk)));
+const sagaMiddleware = createSagaMiddleware()
+const store = createStore(reducer,composeWithDevTools(applyMiddleware(sagaMiddleware)));
+sagaMiddleware.run(watchIncrementAction)
+sagaMiddleware.run(watchDecrementAction)
+sagaMiddleware.run(watchAddAction)
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
